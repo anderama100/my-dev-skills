@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <div class="ct">
+      <div class="hd">
+        <h3>MY DEVELOPER SKILLS</h3>
+      </div>
+    </div>
+
+      <div class="bd">
+      <input type="text" class="adds" placeholder="Add Skill"></div>
+      <div class="bd">
+      <button type="submit" class="ct">PRESS ENTER</button>
+      </div>
+
+
+    <script type="text/javascript">
+      $(".adds").on("keyup",function(e){
+        
+        if(e.keyCode == 13 && $(".adds").val() != "")
+        {
+          var task = $("<div class='task'></div>").text($(".adds").val());
+          var del = $("<i class='fas fa-trash-restore'></i>").click(function(){
+            var p = $(this).parent();
+            p.fadeOut(function(){
+              p.remove();
+            });
+          });
+
+          var check = $("<i class='fas fa-se'></i>").click(function(){
+            var p = $(this).parent();
+            p.fadeOut(function(){
+              $(".bd").append(p);
+              p.fadeIn();
+            });
+            $(this).remove();
+          });
+
+          task.append(del,check);
+          $(".hd").append(task);
+            
+          $(".adds").val("");
+        }
+      });
+    </script>
+
+  </body>
+</html>
